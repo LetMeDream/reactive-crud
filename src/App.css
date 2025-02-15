@@ -23,9 +23,38 @@ body{
 #root {
   width:100%;
 }
+@media only screen and (min-width: 1200px) {
+  .main {
+    width: 65%;
+  }
+}
 
-.main {
-  width:90%
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .main {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .main {
+    width: 80%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .main {
+    width: 95%;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .main {
+    width: 100%;
+  }
 }
 
 .section {
