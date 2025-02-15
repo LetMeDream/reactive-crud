@@ -2,6 +2,7 @@
   max-width: 300px;
   border-radius: 2px;
   user-select: none;
+  margin: auto;
 }
 
 .modal-header, .modal-content {
