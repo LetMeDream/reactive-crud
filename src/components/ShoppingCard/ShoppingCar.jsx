@@ -23,7 +23,7 @@ const ShoppingCar = ({
           />
           <DeleteProduct
             xs={12} md={12} lg={4} 
-            classnames='mt-4 mt-lg-0'
+            classnames='mt-4 mb-4 mb-md-0 mt-lg-0'
             products={products}
             setProducts={setProducts}
           />
