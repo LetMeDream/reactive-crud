@@ -19,11 +19,11 @@ const ShoppingCar = ({
             setProducts={setProducts}
           />
           <EditProduct xs={12} md={6} lg={4}
-            classnames='mt-sm-4 mt-md-0'
+            classnames='mt-4 mt-md-0'
           />
           <DeleteProduct
             xs={12} md={12} lg={4} 
-            classnames='mt-sm-4 mt-lg-0'
+            classnames='mt-4 mt-lg-0'
             products={products}
             setProducts={setProducts}
           />

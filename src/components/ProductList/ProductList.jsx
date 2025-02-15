@@ -14,9 +14,10 @@ const ProductList = ({
           products?.map(product => {
             return (
               <Col 
-                xs={4}
+                xs={12}
+                md={4}
                 key={product?.id}
-                className='px-4'
+                className='px-4 mt-2'
               >
                 <Product 
                   product={product}
