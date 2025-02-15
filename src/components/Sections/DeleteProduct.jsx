@@ -10,6 +10,7 @@ import { errorToast } from "../../helpers/toasts"
 import { BasicModal } from "../Shared/Modal/Modal"
 import { useModal } from "../../hooks/useModal"
 import { useState } from "react"
+import { saveToLocalStorage } from "../../helpers/localStorage"
 
 const DeleteProduct = ({
   xs,
@@ -41,7 +42,11 @@ const DeleteProduct = ({
   }
 
   const deleteProduct = () => {
-    setProducts(prevProducts => prevProducts.filter(product => product?.id !== productToDelete?.id))
+    setProducts(prevProducts => {
+      let newProducts =  prevProducts.filter(product => product?.id !== productToDelete?.id)
+      saveToLocalStorage('products', newProducts)
+      return newProducts
+    })
   } 
 
   return (
