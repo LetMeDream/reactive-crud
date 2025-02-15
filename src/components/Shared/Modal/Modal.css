@@ -1,0 +1,25 @@
+.modal-dialog {
+  max-width: 300px;
+  border-radius: 2px;
+  user-select: none;
+}
+
+.modal-header, .modal-content {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.modal-footer, .modal-content {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap:6px;
+}
+
+.modal-header span {
+  color: gray;
+}
