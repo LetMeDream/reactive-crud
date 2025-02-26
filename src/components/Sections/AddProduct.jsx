@@ -24,8 +24,17 @@ const AddProduct = ({
   });
   const [idForPreviousProduct, setIdForPreviousProduct] = useState(null)
   const [idForCurrentProduct, setIdForCurrentProduct] = useState(uuidv4())
-  // const [restoredProductIId ,setRestoredProductIId] = useState(idForCurrentProduct)
-  const { register, handleSubmit, trigger, reset, getValues, setValue } = methods;
+
+  const { 
+    register,      /* Registrar Campos en el formulario */
+    handleSubmit,  /* Manejar función de 'submit' */
+    trigger,       /* Ejecutar validaciones */
+    reset,         /* Resetear formulario; limpiar todos sus campos */
+    getValues,     /* Obtener valores del formulario. Todos o uno en específivo. */
+    setValue       /* Setear un valor del formulario en específico. */
+  } = methods;     /* De éste objeto, methods, sacamos las funciones de arriba */
+
+
   const onSubmit = async data => { 
     data = {
       ...data,
