@@ -16,7 +16,7 @@ const CustomButton = ({
       // variant="outline-light" 
       variant={outline ? `outline-${type}` : type}
       size="sm"
-      type={buttonType} /* Submit; Button; Reset.    -> https://www.w3schools.com/tags/att_button_type.asp */
+      type={buttonType} /* 'submit'; 'button'; 'reset'.    -> https://www.w3schools.com/tags/att_button_type.asp */
       onClick={onClick ? onClick : null}
     >
       {text}
