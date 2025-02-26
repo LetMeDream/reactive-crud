@@ -7,7 +7,7 @@ const CustomButton = ({
   classnames,
   outline = true,
   type = 'light',
-  buttonType = '',
+  buttonType = 'button',
   onClick
 }) => {
   return (
