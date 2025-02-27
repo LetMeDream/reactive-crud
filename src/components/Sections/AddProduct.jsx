@@ -70,7 +70,9 @@ const AddProduct = ({
       ...formData,
       id: idForCurrentProduct
     };
-    if (await trigger()) { // trigger() devuelve true si el formulario no posee errores.
+
+    let isValid = await trigger()
+    if (isValid) { // trigger() devuelve true si el formulario no posee errores.
       actionToast({
         title: 'Èxito!',
         content: 'El producto ha sido añadido',
@@ -78,7 +80,7 @@ const AddProduct = ({
       })
       setIdForPreviousProduct(idForCurrentProduct)
       setIdForCurrentProduct(uuidv4())
-    } else {
+    } else {               // Camino en caso de errores.
       errorToast({
         title: 'Ups!',
         content: 'Revise los errores del formulario'
@@ -94,7 +96,6 @@ const AddProduct = ({
         <Card>
           <form 
             onSubmit={handleSubmit(onSubmit)}
-
           >
             <h1 className="section-title">
               Añadir
