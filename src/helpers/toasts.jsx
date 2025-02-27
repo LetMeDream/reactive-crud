@@ -13,13 +13,12 @@ export const errorToast = ({title, content}) => {
   })
 }
 
-export const actionToast = ({ title, content, action, idForCurrentProduct }) => {
+export const actionToast = ({ title, content, action }) => {
   toast(WithActions, {
     data: {
       title,
       content,
-      action,
-      idForCurrentProduct
+      action
     }, 
     // autoClose: false
   })

@@ -32,7 +32,7 @@ FormToast.propTypes = {
 export function WithActions({ closeToast, data }) {
 
   const action = () => {
-    if (data?.action(data?.idForCurrentProduct)){
+    if (data?.action()){
       closeToast()
     }
   }
