@@ -141,6 +141,11 @@ const AddProduct = ({
                 onClick={onClick}
               />
             </div>
+            {/* 
+              {<div style={{textAlign: 'center', marginTop:'.5rem', color: '#48BEFF'}}>
+                {idForCurrentProduct}
+              </div>} 
+            */}
           </form>
         </Card>
       </FormProvider>
