@@ -35,7 +35,7 @@ const AddProduct = ({
   } = methods;     /* De éste objeto, methods, sacamos las funciones de arriba */
 
 
-  const onSubmit = async data => { 
+  const onSubmit = data => { 
     data = {
       ...data,
       id: idForPreviousProduct
