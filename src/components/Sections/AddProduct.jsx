@@ -6,7 +6,7 @@ import { useForm, FormProvider } from "react-hook-form"
 import { addProductFormSchema } from "../../constants/Schemas"
 import { yupResolver } from '@hookform/resolvers/yup'
 import CustomButton from "../Shared/CustomButton"
-import { v4 as uuidv4 } from 'uuid'
+import { generateShortId } from "../../helpers/shared"
 import { useState } from "react"
 import { errorToast, actionToast } from "../../helpers/toasts"
 import { saveToLocalStorage } from "../../helpers/localStorage"
@@ -23,7 +23,7 @@ const AddProduct = ({
     resolver: yupResolver(addProductFormSchema)
   });
   const [idForPreviousProduct, setIdForPreviousProduct] = useState(null)
-  const [idForCurrentProduct, setIdForCurrentProduct] = useState(uuidv4())
+  const [idForCurrentProduct, setIdForCurrentProduct] = useState(generateShortId())
 
   const { 
     register,      /* Registrar Campos en el formulario */
@@ -79,7 +79,7 @@ const AddProduct = ({
         action: () => undoRecentlyCreatedProduct(newProduct)
       })
       setIdForPreviousProduct(idForCurrentProduct)
-      setIdForCurrentProduct(uuidv4())
+      setIdForCurrentProduct(generateShortId())
     } else {               // Camino en caso de errores.
       errorToast({
         title: 'Ups!',
