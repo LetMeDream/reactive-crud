@@ -20,6 +20,6 @@ export const actionToast = ({ title, content, action }) => {
       content,
       action
     }, 
-    // autoClose: false
+    autoClose: false
   })
 }
