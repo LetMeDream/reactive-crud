@@ -32,6 +32,7 @@ FormToast.propTypes = {
 export function WithActions({ closeToast, data }) {
 
   const action = () => {
+    // debugger
     if (data?.action()){
       closeToast()
     }

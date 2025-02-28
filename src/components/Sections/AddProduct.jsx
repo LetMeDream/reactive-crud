@@ -72,6 +72,7 @@ const AddProduct = ({
     };
 
     let isValid = await trigger()
+    // debugger
     if (isValid) { // trigger() devuelve true si el formulario no posee errores.
       actionToast({
         title: 'Èxito!',
@@ -141,11 +142,11 @@ const AddProduct = ({
                 onClick={onClick}
               />
             </div>
-            {/* 
+            {/*
               {<div style={{textAlign: 'center', marginTop:'.5rem', color: '#48BEFF'}}>
                 {idForCurrentProduct}
               </div>} 
-            */}
+            */} 
           </form>
         </Card>
       </FormProvider>
