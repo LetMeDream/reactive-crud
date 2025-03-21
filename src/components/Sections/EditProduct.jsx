@@ -11,10 +11,11 @@ const EditProduct = ({
   sm,
   md, 
   lg, 
-  classnames = ''
+  classnames = '',
+  products
 }) => {
   const methods = useForm()
-
+  const {register} = methods
   return (
     <Col  xs={xs} sm={sm} md={md} lg={lg} className={classnames}>
       <FormProvider {...methods}>
@@ -26,6 +27,9 @@ const EditProduct = ({
           <SelectInput 
             title={'Producto'}
             itemToSelect={'producto'}
+            products={products}
+            register={register}
+            id='product-name'
           />
           {/* Producto start */}
           {/* Atributo start */}
@@ -60,6 +64,7 @@ EditProduct.propTypes = {
   md: PropTypes.number,
   lg: PropTypes.number,
   classnames: PropTypes.string,
+  products: PropTypes.array
 }
 
 export default EditProduct
