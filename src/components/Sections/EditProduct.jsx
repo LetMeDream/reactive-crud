@@ -2,9 +2,10 @@ import Card from "../FormCard/FormCard"
 import { Col } from "react-bootstrap"
 import SelectInput from "../Inputs/SelectInput/SelectInput"
 import TextInput from "../Inputs/TextInput/TextInput"
-import PropTypes from "prop-types"
+import PropTypes, { object } from "prop-types"
 import {Button} from "react-bootstrap"
 import { useForm, FormProvider } from "react-hook-form"
+import { editAttributesOption } from "../../constants/Form"
 
 const EditProduct = ({
   xs,
@@ -14,8 +15,12 @@ const EditProduct = ({
   classnames = '',
   products
 }) => {
+  
   const methods = useForm()
   const {register} = methods
+  
+  
+
   return (
     <Col  xs={xs} sm={sm} md={md} lg={lg} className={classnames}>
       <FormProvider {...methods}>
@@ -36,6 +41,9 @@ const EditProduct = ({
           <SelectInput 
             title={'Atributo'}
             itemToSelect={'atributo'}
+            products={editAttributesOption}
+            register={register}
+            id='product-name'
           />  
           {/* Atributo end */}
           {/* new value start */}
@@ -64,7 +72,9 @@ EditProduct.propTypes = {
   md: PropTypes.number,
   lg: PropTypes.number,
   classnames: PropTypes.string,
-  products: PropTypes.array
+  products: PropTypes.array,
+  claves: PropTypes.array
 }
+
 
 export default EditProduct
