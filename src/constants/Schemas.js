@@ -14,3 +14,9 @@ export const addProductFormSchema = yup.object({
 export const deleteProductFormSchema = yup.object({
   'product-name': yup.string().required('Este campo es obligatorio'),
 })
+
+export const editProductFormSchema = yup.object({
+    'product-name': yup.string().required('Este campo es obligatorio'),
+    'product-attribute': yup.string().required('Este campo es obligatorio'),
+    'product-new-value':  yup.string().required('Este campo es obligatorio')
+  })

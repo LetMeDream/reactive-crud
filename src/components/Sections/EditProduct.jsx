@@ -5,7 +5,9 @@ import TextInput from "../Inputs/TextInput/TextInput"
 import PropTypes, { object } from "prop-types"
 import {Button} from "react-bootstrap"
 import { useForm, FormProvider } from "react-hook-form"
+import { yupResolver } from '@hookform/resolvers/yup'
 import { editAttributesOption } from "../../constants/Form"
+import { editProductFormSchema } from "../../constants/Schemas"
 
 const EditProduct = ({
   xs,
@@ -16,16 +18,18 @@ const EditProduct = ({
   products
 }) => {
 
-  const methods = useForm()
-  const {register} = methods
-  
-  
+ const methods = useForm({
+    resolver: yupResolver(editProductFormSchema)
+  });
+
+  const {register} = methods;
 
   return (
     <Col  xs={xs} sm={sm} md={md} lg={lg} className={classnames}>
       <FormProvider {...methods}>
         <Card>  
-          <h1 className="section-title">
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="section-title">
             Editar
           </h1>
           {/* Producto start */}
@@ -56,10 +60,11 @@ const EditProduct = ({
           {/* new value end */}
           {/* Nombre end */}
           <div className="flex">
-            <Button className="btn-send" variant="outline-light" size="sm">
+            <Button type="submit" className="btn-send" variant="outline-light" size="sm">
               Editar
             </Button>
           </div>
+        </form>
         </Card>
       </FormProvider>
     </Col>
