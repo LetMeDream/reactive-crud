@@ -15,7 +15,7 @@ const EditProduct = ({
   classnames = '',
   products
 }) => {
-  
+
   const methods = useForm()
   const {register} = methods
   
@@ -43,7 +43,7 @@ const EditProduct = ({
             itemToSelect={'atributo'}
             products={editAttributesOption}
             register={register}
-            id='product-name'
+            id='product-attribute'
           />  
           {/* Atributo end */}
           {/* new value start */}
