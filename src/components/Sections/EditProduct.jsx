@@ -2,7 +2,7 @@ import Card from "../FormCard/FormCard"
 import { Col } from "react-bootstrap"
 import SelectInput from "../Inputs/SelectInput/SelectInput"
 import TextInput from "../Inputs/TextInput/TextInput"
-import PropTypes, { object } from "prop-types"
+import PropTypes from "prop-types"
 import {Button} from "react-bootstrap"
 import { useForm, FormProvider } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -22,7 +22,11 @@ const EditProduct = ({
     resolver: yupResolver(editProductFormSchema)
   });
 
-  const {register} = methods;
+  const {register, handleSubmit, trigger} = methods;
+
+  const onSubmit = async () => {
+    console.log(await trigger())
+  };
 
   return (
     <Col  xs={xs} sm={sm} md={md} lg={lg} className={classnames}>
@@ -54,6 +58,7 @@ const EditProduct = ({
           <TextInput
             title='Nuevo valor'
             type='text'
+            register={register}
             id='product-new-value'
             placeholder={'Nuevo valor'}
           />
