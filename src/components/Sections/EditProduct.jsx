@@ -10,7 +10,7 @@ import { editAttributesOption } from "../../constants/Form"
 import { editProductFormSchema } from "../../constants/Schemas"
 import { errorToast } from "../../helpers/toasts"
 import { saveToLocalStorage } from "../../helpers/localStorage"
-
+import { toast } from "react-toastify"
 const EditProduct = ({
   xs,
   sm,
@@ -25,10 +25,9 @@ const EditProduct = ({
     resolver: yupResolver(editProductFormSchema)
   });
 
-  const {register, handleSubmit, trigger} = methods;
+  const {register, handleSubmit, trigger, reset} = methods;
 
-  const onSubmit = async (formValues) => {
-    if (await trigger()) {
+  const onSubmit = (formValues) => {
       const selectedProduct = products.find(
       (product) => product.id === formValues['product-name']);
       const selectedProperty = formValues?.['product-attribute'];
@@ -41,12 +40,20 @@ const EditProduct = ({
       // Actualizar el estado y guardar en localStorage
       setProducts(updatedProducts);
       saveToLocalStorage("products", updatedProducts);
-      console.log("Productos actualizados:", updatedProducts);
+    reset()
+  };
+
+  const onClick = async () => {
+    if (await trigger()) {
+      toast("Producto editado con éxito", {
+        position: "top-right",
+        type: "success",
+      });
     } else {
       errorToast({
-        title: 'Ups!',
-        content: 'Revise los errores del formulario'
-      })
+        title: "Ups!",
+        content: "Revise los errores del formulario",
+      });
     }
   };
 
@@ -87,7 +94,7 @@ const EditProduct = ({
           {/* new value end */}
           {/* Nombre end */}
           <div className="flex">
-            <Button type="submit" className="btn-send" variant="outline-light" size="sm">
+            <Button type="submit" onClick={onClick} className="btn-send" variant="outline-light" size="sm">
               Editar
             </Button>
           </div>
