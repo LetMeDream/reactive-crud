@@ -15,8 +15,20 @@ export const deleteProductFormSchema = yup.object({
   'product-name': yup.string().required('Este campo es obligatorio'),
 })
 
-export const editProductFormSchema = yup.object({
+export const editProductFormSchema = yup.object().shape({
     'product-name': yup.string().required('Este campo es obligatorio'),
     'product-attribute': yup.string().required('Este campo es obligatorio'),
-    'product-new-value':  yup.string().required('Este campo es obligatorio')
-  })
+    'product-new-value':  yup.string().required()
+      .when('product-attribute', {
+        is: (value) => value === 'product-value' ||value === 'product-existance',
+        then: () => yup.number().typeError('Éste valor debe ser un número').required('Este campo es obligatorio'),
+      })
+      .when('product-attribute', {
+        is: 'product-url-image',
+        then: () => yup.string().url('Debe ser una URL válida').required('Este campo es obligatorio'),
+      })
+      .when('product-attribute', {
+        is: 'product-name',
+        then: () => yup.string().required('Este campo es obligatorio'),
+      })
+})
