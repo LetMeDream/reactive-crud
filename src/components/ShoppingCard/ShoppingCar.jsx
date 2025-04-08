@@ -1,9 +1,8 @@
 import { Row, Container } from 'react-bootstrap'
 import AddProduct from '../Sections/AddProduct';
-import EditProduct from '../Sections/EditProduct';
+import EditProduct from '../Sections/EditProducts/EditProduct';
 import DeleteProduct from '../Sections/DeleteProduct';
 import PropTypes from 'prop-types';
-
 const ShoppingCar = ({
   setProducts,
   products
