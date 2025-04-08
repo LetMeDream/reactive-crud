@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { FormProvider } from "react-hook-form"
 import useEdit from "../../../hooks/useEdit"
 import EditForm from "./EditForm"
-
 const EditProduct = ({
   xs,
   sm,
@@ -21,17 +20,16 @@ const {
   methods,
   onSubmit
 } = useEdit({ products, setProducts })
-
   return (
     <Col  xs={xs} sm={sm} md={md} lg={lg} className={classnames}>
       <FormProvider {...methods}>
         <Card>  
           <EditForm 
-            register={register}
-            handleSubmit={handleSubmit}
-            onClick={onClick}
-            onSubmit={onSubmit}
-            products={products}
+          register={register}
+          handleSubmit={handleSubmit} 
+          onClick={onClick}
+          onSubmit={onSubmit}
+          products={products}
           />
         </Card>
       </FormProvider>
