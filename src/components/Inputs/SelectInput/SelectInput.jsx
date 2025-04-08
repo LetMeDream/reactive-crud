@@ -9,7 +9,8 @@ function SelectInput({
   itemToSelect,
   id,
   register,
-  products
+  products,
+  disabled
 }) {
   const { error, isError } = useSelectInput(id)
 
@@ -24,6 +25,7 @@ function SelectInput({
       </Form.Text>
       <Form.Select 
         size='sm' aria-label="Default select example"
+        disabled={disabled} 
         {...(register ? register(id) : {})} /* <- Condicional para evitar que 'TextInputs' sin función 'register' crasheen. */
       >
         <option value='' key='x'>Elija un {itemToSelect || ' item'}</option>
@@ -51,7 +53,8 @@ SelectInput.propTypes = {
   itemToSelect: PropTypes.string,
   id: PropTypes.string,
   register: PropTypes.func,
-  products: PropTypes.array
+  products: PropTypes.array,
+  disabled: PropTypes.bool
 }
 
 export default SelectInput;

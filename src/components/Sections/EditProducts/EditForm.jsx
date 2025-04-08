@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useWatch } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { useState } from 'react';
 const EditForm = ({
 handleSubmit,
 onClick,
@@ -13,14 +14,22 @@ onSubmit,
 register, 
 products
 }) => {
- const { setValue } = useFormContext()
- const attributeToEdit = useWatch({ name: 'product-attribute' })
- const productToEdit = useWatch({ name: 'product-name' })
+  const { setValue } = useFormContext()
+  const attributeToEdit = useWatch({ name: 'product-attribute' })
+  const productToEdit = useWatch({ name: 'product-name' })
+  const [isSelectDisabled, setIsSelectDisabled] = useState(true)
+  useEffect(() => {
+    if (productToEdit) {
+      setIsSelectDisabled(false)
+      } else {
+        setIsSelectDisabled(true)
+    }
+  }, [productToEdit]);
 
- useEffect(() => {
-   const product = products?.filter(product => product.id === productToEdit)[0]
-   setValue('product-new-value', product?.[attributeToEdit])
-   //eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const product = products?.filter(product => product.id === productToEdit)[0]
+    setValue('product-new-value', product?.[attributeToEdit])
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attributeToEdit]);
 
   return (
@@ -44,6 +53,7 @@ products
             products={editAttributesOption}
             register={register}
             id='product-attribute'
+            disabled={isSelectDisabled}
           />  
           {/* Atributo end */}
           {/* new value start */}
