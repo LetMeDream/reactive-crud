@@ -30,7 +30,7 @@ products
     const product = products?.filter(product => product.id === productToEdit)[0]
     setValue('product-new-value', product?.[attributeToEdit])
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [attributeToEdit]);
+  }, [attributeToEdit, productToEdit]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
